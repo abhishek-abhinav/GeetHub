@@ -23,7 +23,7 @@ At GeetHub, we prioritize the privacy and data protection of our users. We are c
 
 ## Terms of Service
 
-Please read the [Terms of Service](terms.html) for GeetHub to understand the rules and regulations governing the use of our website. By accessing and using GeetHub, you agree to abide by these terms and conditions.
+Please read the [Terms of Service](/Footer/terms/terms.html) for GeetHub to understand the rules and regulations governing the use of our website. By accessing and using GeetHub, you agree to abide by these terms and conditions.
 
 ## Getting Started
 
