@@ -28,7 +28,7 @@ async function getSongs(url) {
 
 async function getPlaylists() {
 
-    const playlists = await fetch("https://github.com/abhishek-abhinav/GeetHub/tree/main/Songs/");
+    const playlists = await fetch("/songs/");
     let response = await playlists.text();
     // console.log(response);
 
