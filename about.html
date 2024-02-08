@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About GeetHub</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="about_style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="img/GeetHub_logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="d-flex align-items-center justify-content-between">
+        <div class=" left-nav d-flex align-items-center justify-content-evenly">
+            <div class="hamburger">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="branding d-flex align-items-center justify-content-center">
+                <img src="img/GeetHub_logo.png" alt="logo">
+            </div>
+            <h3>GeetHub</h3>
+        </div>
+
+        <div class="right-nav d-flex align-items-center justify-content-around">
+            <div class="searchbar d-flex align-items-center">
+                <i class="fa fa-search"></i>
+                <p class="m-0">Type <span>/</span> to search</p>
+                <input type="text" name="search" id="search" placeholder="Type '/' to search">
+            </div>
+            <button id="signup">Sign up</button>
+            <button id="login">Log in</button>
+        </div>
+    </nav>
+
+
+    <div class="content d-flex flex-column">
+        <!-- Menu Section : aside -->
+
+        <aside class="menu left col text-light">
+            <div class=" left-nav d-flex align-items-center justify-content-between p-2 m-1" style="width: 95%;">
+                <div class="branding d-flex gap-1 align-items-center justify-content-center">
+                    <img src="img/GeetHub_logo.png" alt="logo">
+                    <h3>GeetHub</h3>
+                </div>
+                <div class="close">
+                    <i class="fa fa-close"></i>
+                </div>
+            </div>
+            <div class="home tabs bg-black p-2">Home</div>
+            <div class="search tabs bg-black p-2">Search</div>
+            <div class="about-us tabs bg-black p-2">About Us</div>
+            <div class="contact-us tabs bg-black p-2">Contact Us</div>
+            <div class="follow-us tabs bg-black p-2">Connect With Us<i class="fa fa-angle-down"></i>
+                <div class="social d-none">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/abhishek-abhinav" target="_blank">GitHub &nbsp; <i
+                                    class="fa fa-external-link"></i></a>
+                        </li>
+                        <li> <a href="https://linkedin.com/in/abhi5hekabhinav" target="_blank">LinkedIn &nbsp; <i
+                                    class="fa fa-external-link"></i></a>
+                        </li>
+                        <li> <a href="mailto:abhishekabhinav.av@gmail.com" target="_blank">Mail Us &nbsp; <i
+                                    class="fa fa-send-o"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <div class="about-container  align-self-center">
+            <header>
+                <h1>About GeetHub</h1>
+                <p class="text-center">Welcome to GeetHub, your go-to destination for a seamless music listening
+                    experience.
+                    GeetHub is a music player app developed with passion and dedication by <strong> Abhishek
+                        Abhinav</strong>, aimed at
+                    providing users with a platform to enjoy their favorite tunes effortlessly.</p>
+            </header>
+            <br>
+            <section class="creator">
+                <h2>Meet the Creator</h2>
+                <p><strong>Abhishek Abhinav</strong> is the mastermind behind GeetHub. With a profound love for music
+                    and a flair for web
+                    development, Abhishek embarked on a journey to create a music player app that combines functionality
+                    with an intuitive user interface.</p>
+            </section>
+
+            <section class="mission">
+                <h2>Our Mission</h2>
+                <p>At GeetHub, our mission is to revolutionize the way people listen to music online. We strive to offer
+                    a
+                    user-friendly platform that caters to music enthusiasts of all tastes and preferences. Whether
+                    you're
+                    into the latest chart-toppers or indie classics, GeetHub has something for everyone.</p>
+            </section>
+
+            <section class="why-geethub">
+                <h2>Why GeetHub?</h2>
+                <p>GeetHub stands out from the crowd with its sleek design, seamless performance, and an extensive
+                    library
+                    of songs from various genres. Our commitment to continuously improving the app ensures that users
+                    have
+                    access to the latest features and updates.</p>
+            </section>
+
+            <section class="frontend-tools">
+                <h2>Frontend Tools</h2>
+                <p>GeetHub is built using cutting-edge frontend tools of web development to ensure a smooth and
+                    responsive
+                    user experience. Abhishek Abhinav has leveraged the power of HTML, CSS, and JavaScript to create a
+                    visually appealing and highly functional music player app.</p>
+            </section>
+
+            <section class="key-features">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Intuitive Interface:</strong> GeetHub boasts an intuitive and user-friendly interface,
+                        making it easy for users to navigate through their music library.</li>
+                    <li><strong>Customizable Playlists:</strong> Create and personalize your playlists with ease,
+                        ensuring
+                        that you have all your favorite tracks at your fingertips.</li>
+                    <li><strong>Seamless Streaming:</strong> Enjoy uninterrupted music streaming with GeetHub's seamless
+                        playback feature.</li>
+                    <li><strong>Cross-Platform Compatibility:</strong> GeetHub is accessible across various devices and
+                        platforms, allowing users to enjoy their music anywhere, anytime.</li>
+                </ul>
+            </section>
+            <hr>
+            <footer>
+                <p>Join the GeetHub Community: Experience the joy of music with GeetHub today!</p>
+            </footer>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="common_menu_script.js"></script>
+</body>
+
+</html>

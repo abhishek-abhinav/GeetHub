@@ -1,0 +1,469 @@
+/* Define scrollbar styles */
+/* Works on Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333; /* Dark background color for scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #666; /* Grey color for scrollbar thumb */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* Lighter grey color on hover for scrollbar thumb */
+}
+
+/* Works on Firefox */
+/* Note: Firefox does not currently support styling the scrollbar track */
+/* You can use background-color for Firefox instead */
+/* ::-moz-scrollbar-track {
+    background-color: #333;
+} */
+
+/* ::-moz-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 6px;
+} */
+
+/* ::-moz-scrollbar-thumb:hover {
+    background-color: #888;
+} */
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    width: 100%;
+    /* scrollbar-color: dark; */
+}
+
+nav {
+    width: 100%;
+    height: 4rem;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+    background-color: black;
+    border-bottom: 1px solid #80808075;
+}
+
+.left-nav {
+    width: 12rem;
+}
+
+.hamburger,.close {
+    color: #80808075;
+    padding: .5rem;
+    /* margin: 1rem; */
+    display: inline-flex;
+    border: 1px solid #80808075;
+    border-radius: 5px;
+    height: 2rem;
+    width: 2rem;
+}
+
+.branding img {
+    width: 2rem;
+}
+
+.left-nav h3 {
+    color: white;
+    margin: 0;
+    font-size: 16px;
+}
+
+.right-nav {
+    width: 32rem;
+}
+
+.searchbar {
+    color: #80808075;
+    font-size: 14px;
+    border: 1px solid #80808075;
+    border-radius: 6px;
+    width: 20rem;
+    padding: 3px 6px;
+    gap: 5px;
+}
+
+.searchbar span {
+    border: 1px solid #80808075;
+    border-radius: 3px;
+    padding: 0 3px;
+}
+
+.searchbar input {
+    display: none;
+    margin-left: -7rem;
+    width: 18rem;
+}
+
+#signup {
+    color: grey;
+    background-color: unset;
+    border: unset;
+    font-weight: bold;
+}
+
+#login {
+    color: black;
+    background-color: #fff;
+    padding: .75rem 1.75rem;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 22% 78%;
+    position: relative;
+    
+}
+
+.left {
+    height: 100vh;
+    border-right: 1px solid #80808075;
+    position: sticky;
+    top: 0;
+    background-color: #0d1117;
+}
+.menu{
+    position: fixed;
+    width: 20rem;
+    z-index: 1;
+    transform: translateX(-20rem);
+    transition: all .5s;
+}
+.menu .social a{
+    color: #2d81f7;
+    /* text-decoration: none; */
+}
+.menu .tabs:hover{
+    color: #2d81f7;
+    text-decoration: underline;
+}
+.social:hover{
+    text-decoration: none;
+}
+.social a:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.close:hover, .hamburger:hover{
+    background-color: rgba(229, 229, 229, 0.058);
+}
+
+.tabs,
+.library-container {
+    border-radius: 5px;
+    border: .5px solid #80808075;
+    margin: 1rem;
+}
+
+.library-container {
+    min-height: 70%;
+}
+
+.your-library img {
+    filter: invert(1);
+    width: 1.75rem;
+}
+
+ol li {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+ol li img {
+    width: 3rem;
+}
+
+ol li p {
+    font-size: 12px;
+}
+
+section.main {
+    overflow: auto;
+    /* height: 100vh; */
+    background-color: black;
+    position: relative;
+}
+
+main {
+    min-height: 100vh;
+    scrollbar-width: none;
+    /* background-color: rgb(151, 206, 151); */
+    /* background: linear-gradient(rgb(35, 34, 34),rgb(23, 22, 22) 10%,black 40%); */
+}
+
+.container {
+    background: linear-gradient(rgb(35, 34, 34), rgb(23, 22, 22) 10%, black 40%);
+    min-height: 70vh;
+    border-radius: 10px;
+    border: 1px solid #80808075;
+    border-top-color: transparent;
+    padding: 5px 15px;
+}
+
+.card {
+    background: linear-gradient(black, rgb(35, 34, 34) 40%, rgb(23, 22, 22) 80%);
+    cursor: pointer;
+}
+
+.cover img {
+    object-fit: contain;
+    width: 85%;
+}
+
+.details {
+    margin: auto 15px;
+}
+
+footer {
+    margin: 5rem 0 10rem;
+    font-size: 12px;
+}
+
+.footer-branding {
+    /* width: 20%; */
+    width: 13%;
+}
+
+.footer-branding img {
+    width: 2rem;
+    opacity: 50%;
+    filter: invert();
+}
+
+.footer-links {
+    width: 49%;
+}
+
+.footer-links ul {
+    flex-wrap: wrap;
+    column-gap: 1rem;
+
+}
+
+.footer-links li {
+    list-style: none;
+}
+.footer-links li a{
+    text-decoration: none;
+    color: unset;
+}
+.footer-links li a:hover{
+    color: #055dfd;
+    text-decoration: underline;
+}
+
+
+ol li:hover {
+    background-color: grey;
+    border-radius: 5px;
+}
+
+
+.right {
+    /* background-color: rgb(84, 223, 236); */
+    width: 22vw;
+    /* border-left: 1px solid grey; */
+    background-color: #0d1117;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+    height: max-content;
+}
+.right .currPlaylistSongs{
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.right .info {
+    width: 90%;
+}
+
+.playbar {
+    position: fixed;
+    bottom: 0;
+    background-color: #0d1117;
+    height: 5rem;
+    width: 78%;
+}
+
+.now-playing img {
+    width: 100%;
+}
+
+.playing-img {
+    width: 2rem;
+}
+
+.now-playing {
+    width: 14rem;
+    visibility: hidden;
+}
+
+.library-container .info {
+    width: 80%;
+}
+
+.now-playing .info {
+    width: 11rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info h6 {
+    text-overflow: ellipsis;
+    /* overflow-wrap: break-word; */
+    /* height: 1rem; */
+    overflow: hidden;
+    /* word-break: break-all; */
+    white-space: nowrap;
+}
+
+.now-playing .info p {
+    font-size: 10px;
+}
+
+.ctrl-btns img {
+    width: 2rem;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+#prev:active,
+#next:active {
+    filter: contrast(0.1);
+    transform: scale(0.9);
+}
+
+.seekbar {
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.play-seek {
+    width: 40vw;
+    height: 1vh;
+    /* background-color: grey; */
+    border-radius: 5px;
+    position: relative;
+    /* background: linear-gradient(to right, yellow 50%, grey 50%); */
+}
+
+.circle {
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    background-color: yellow;
+    border-radius: 50%;
+    /* left: -1%; */
+    transition: all .1s;
+}
+
+/* input[type=range]::-webkit-slider-thumb{
+    color: yellow;
+} */
+
+
+@media screen and (max-width:1200px) {
+    main {
+        min-height: unset;
+    }
+
+    .right-nav .searchbar p {
+        display: none;
+
+    }
+
+    .searchbar {
+        width: auto;
+    }
+    .searchbar input{
+        width: 7rem;
+    }
+
+    .right-nav {
+        width: 12rem;
+    }
+
+    #login {
+        padding: 3px 15px 5px;
+    }
+
+    .content {
+        grid-template-columns: auto;
+    }
+
+    .left-fix {
+        /* position: absolute;
+        left: -70vw;
+        transform: translateX(-70vw);
+        transition: all 1s; */
+        display: none;
+    }
+
+    .menu{
+        max-width: 80%;
+    }
+    .right {
+        width: 94%;
+        margin: auto auto 7rem;
+        /* position: fixed; */
+        /* bottom: 0; */
+        /* left: 3vw; */
+    }
+
+    .playbar {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .now-playing {
+        width: unset;
+        justify-content: space-around;
+        margin-top: 0.5rem;
+    }
+
+    .now-playing .info {
+        width: 15rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .now-playing .info p {
+        width: 5rem;
+    }
+
+    .mid-box {
+        width: 100%;
+    }
+
+    .seekbar {
+        margin-bottom: 1rem;
+    }
+
+    .play-seek {
+        width: 75vw;
+    }
+
+    .volume {
+        display: none;
+    }
+}
