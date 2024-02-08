@@ -28,7 +28,7 @@ async function getSongs(url) {
 
 async function getPlaylists() {
 
-    const playlists = await fetch("/Songs/");
+    const playlists = await fetch(`/songs/`);
     let response = await playlists.text();
     // console.log(response);
 
