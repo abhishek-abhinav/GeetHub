@@ -28,7 +28,7 @@ async function getSongs(url) {
 
 async function getPlaylists() {
 
-    const playlists = await fetch("http://127.0.0.1:5500/songs/");
+    const playlists = await fetch("/songs/");
     let response = await playlists.text();
     // console.log(response);
 
