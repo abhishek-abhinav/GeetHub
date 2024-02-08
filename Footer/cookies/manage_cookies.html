@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeetHub - Manage Cookies</title>
+    <link rel="shortcut icon" href="img/GeetHub_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="cookies_style.css">
+</head>
+<body>
+    <header>
+        <h1>Manage Cookies</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Cookies Preferences</h2>
+            <p>Choose your cookie preferences below:</p>
+            <form id="cookieForm">
+                <div class="checkbox">
+                    <input type="checkbox" id="essential" name="essential" checked disabled>
+                    <label for="essential">Essential Cookies (Required)</label>
+                    <p class="description">These cookies are necessary for the website to function properly.</p>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="analytics" name="analytics">
+                    <label for="analytics">Analytics Cookies</label>
+                    <p class="description">These cookies help us analyze website traffic and improve user experience.</p>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="personalization" name="personalization">
+                    <label for="personalization">Personalization Cookies</label>
+                    <p class="description">These cookies allow us to customize content based on your preferences.</p>
+                </div>
+                <button type="button" onclick="savePreferences()">Save Preferences</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 GeetHub <i>by Abhishek Abhinav</i>. All rights reserved.</p>
+    </footer>
+    <script src="cookies_script.js"></script>
+</body>
+</html>
