@@ -27,17 +27,27 @@ async function getSongs(url) {
 }
 
 async function getPlaylists() {
+    let playlists = await fetch('/Songs', {
+        mode: 'no-cors'
+    })
+        .then(response => {
+            // Handle the response (if needed)
+            //   console.log(response.text());
+            return response
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 
-    const playlists = await fetch(`Songs`);
     let response = await playlists.text();
     // console.log(response);
 
     let initialDiv = document.createElement("div");
     initialDiv.innerHTML = response;
-    // console.log(div);
+    // console.log(initialDiv);
 
     let liOfPlaylists = initialDiv.querySelectorAll("li");
-    // console.log(playlists);
+    // console.log(liOfPlaylists);
     // console.log(playlists.length);
 
     // let j=0;
@@ -49,7 +59,7 @@ async function getPlaylists() {
         // console.log(playlistURL);
         // const songs = await fetch(playlistURL[i - 1]);
         // let resp2 = await songs.text();
-        // // console.log(resp2);
+        // console.log(resp2);
         // div[i - 1] = document.createElement("div");
         // div[i - 1].innerHTML = resp2;
         // // console.log(div);
@@ -331,21 +341,22 @@ async function main() {
     // })
 
     for (const playlist of playlists) {
-        // console.log($("ol").html);
+        // console.log(playlist.split("/Songs/")[1].replaceAll("%20", " "));
+        // console.log($("ol").html());
         document.querySelector("ol").innerHTML += `<li class="playlist d-flex gap-1" data-name="${playlist}">
-        <img src="Songs/${playlist.split("/songs/")[1].replaceAll("%20", " ")}/cover.png" alt="">
+        <img src="Songs/${playlist.split("/Songs/")[1].replaceAll("%20", " ")}/cover.png" alt="">
         <div class="info d-flex justify-content-center flex-column">
-            <h6 class="m-0">${playlist.split("/songs/")[1].replaceAll("%20", " ")}</h6>
+            <h6 class="m-0">${playlist.split("/Songs/")[1].replaceAll("%20", " ")}</h6>
             <p class="m-0">Playlist • Abhishek Abhinav</p>
         </div>
         </li> `;
-
+        // console.log(document.querySelector("ol").innerHTML);
         document.querySelector(".cards").innerHTML += `<div class="playlist card col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xs-12  text-light" data-name="${playlist}">
         <div class="cover d-flex justify-content-center align-items-center">
-            <img class="m-3" src="/Songs/${playlist.split("/songs/")[1].replaceAll("%20", " ")}/cover.png" width="100px">
+            <img class="m-3" src="/Songs/${playlist.split("/Songs/")[1].replaceAll("%20", " ")}/cover.png" width="100px">
         </div>
         <div class="details">
-            <h6>${playlist.split("/songs/")[1].replaceAll("%20", " ")}</h6>
+            <h6>${playlist.split("/Songs/")[1].replaceAll("%20", " ")}</h6>
             <p>Playlist • Abhishek Abhinav.</p>
         </div>`
     }
@@ -418,7 +429,7 @@ async function main() {
 
 
 
-    
+
 
 
     $("#next").click(() => {
@@ -472,8 +483,8 @@ async function main() {
     })
 
     let volume = document.querySelector(".volume input")
-    volume.addEventListener("change", e=>{
-        audio.volume=e.target.value/100;
+    volume.addEventListener("change", e => {
+        audio.volume = e.target.value / 100;
     })
 }
 main();
