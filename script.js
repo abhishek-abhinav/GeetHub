@@ -27,7 +27,7 @@ async function getSongs(url) {
 }
 
 async function getPlaylists() {
-    let playlists = await fetch('/Songs', {
+    let playlists = await fetch('https://raw.githubusercontent.com/abhishek-abhinav/GeetHub/tree/main/Songs/', {
         mode: 'no-cors'
     })
         .then(response => {
