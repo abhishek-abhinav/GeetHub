@@ -1,87 +1,40 @@
 let div = [];
 let songArr = [];
+let resp;
+
 
 async function getSongs(url) {
-    const songs = await fetch(url);
-    let resp2 = await songs.text();
-    // console.log(resp2);
-    div = document.createElement("div");
-    div.innerHTML = resp2;
-    // console.log(div);
-    // if (div.querySelectorAll("a").href.endsWith(".mp3")) {
-    //     console.log("yes");
-    // }
-    aOfSongs = div.querySelectorAll("a");
+    // console.log(`${url}`);
+    
+    let response2 = resp[url];
+    // console.log(response2);
     songArr = [];
-    for (let index = 0; index < aOfSongs.length; index++) {
-        const element = aOfSongs[index];
+    for (let index = 0; index < response2.length; index++) {
+        const element = response2[index];
         // console.log(element);
 
-        if (element.href.endsWith(".mp3")) {
+        if (element.endsWith(".mp3")) {
 
-            songArr.push(element.href);
+            songArr.push(url + "/" + element.replaceAll(" ","%20"));
 
         }
     };
+    // console.log(songArr);
     return songArr;
 }
+//https://github.com/abhishek-abhinav/songs/tree/main/Songs/
+// https://cors-anywhere.herokuapp.com/https://github.com/abhishek-abhinav/songs/tree/main/Songs/
+// https://raw.githubusercontent.com/abhishek-abhinav/songs/tree/main/Songs/
 
 async function getPlaylists() {
-    let playlists = await fetch('https://raw.githubusercontent.com/abhishek-abhinav/GeetHub/tree/main/Songs/', {
-        mode: 'no-cors'
-    })
-        .then(response => {
-            // Handle the response (if needed)
-            //   console.log(response.text());
-            return response
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-
-    let response = await playlists.text();
+    let response = resp.Songs;
     // console.log(response);
 
-    let initialDiv = document.createElement("div");
-    initialDiv.innerHTML = response;
-    // console.log(initialDiv);
-
-    let liOfPlaylists = initialDiv.querySelectorAll("li");
-    // console.log(liOfPlaylists);
-    // console.log(playlists.length);
-
-    // let j=0;
-
     let playlistURL = [];
-    for (let i = 1; i < liOfPlaylists.length; i++) {
-        playlistURL[i - 1] = liOfPlaylists[i].querySelector("a").href;
+    for (let i = 0; i < response.length; i++) {
+        playlistURL[i] = "Songs/"+ response[i].replaceAll(" ","%20");
 
         // console.log(playlistURL);
-        // const songs = await fetch(playlistURL[i - 1]);
-        // let resp2 = await songs.text();
-        // console.log(resp2);
-        // div[i - 1] = document.createElement("div");
-        // div[i - 1].innerHTML = resp2;
-        // // console.log(div);
-        // // if (div.querySelectorAll("a").href.endsWith(".mp3")) {
-        // //     console.log("yes");
-        // // }
-        // aOfSongs = div[i - 1].querySelectorAll("a");
-
-        // for (let index = 0; index < aOfSongs.length; index++) {
-        //     const element = aOfSongs[index];
-        //     // console.log(element);
-
-        //     if (element.href.endsWith(".mp3")) {
-
-        //         songArr.push(element.href);
-
-        //     }
-        // };
-        // console.log(songArr);
-
-        // console.log(liOfSongs.title);
-        // for(let j=1; j<lis.length;i++)
     }
 
     return playlistURL;
@@ -145,59 +98,8 @@ const playSong = async (e) => {
     audio.pause();
     let link = e.dataset.name;
     songs = await getSongs(link);
-    // console.log(songs);
-    // if (!audio.paused){
-    //     audio.pause();
-    //     audio.currentTime=0;
-    //     console.log(audio.paused);
-    //     console.log(audio.currentTime);
-    // }
-    // i = 0;
 
     songUp(songs, 0);
-
-
-
-
-
-
-
-    // for (const i of songs) {
-    // audio = songUp(songs[i]);
-    // console.log(audio);
-    //     audio.play();
-
-    //     // console.log(e.dataset.name+"/cover.jpg");
-    //     console.log(audio.src.split("/")[3]+"/"+ audio.src.split("/")[4] + "/cover.png");
-    //     nowPlayingImg.src = audio.src.split("/")[3]+"/"+ audio.src.split("/")[4] + "/cover.png";
-    //     console.log(audio.src.split("/")[5].split(".mp3")[0].replaceAll("%20"," "));
-
-    //     togglePlayButton();
-
-
-    //     nowPlaying.innerHTML = audio.src.split("/")[5].split(".mp3")[0].replaceAll("%20"," ");
-    //     // await !i.currentTime==i.duration;
-    // // }
-    // // let durForm = minuteFormat(audio.duration);
-    // // console.log(parseInt(audio.duration));
-    // // console.log(durForm);
-    // // $(".duration").html(durForm);
-
-    // changeTimes();
-    // setInterval(() => {
-    //     let nowForm = minuteFormat(audio.currentTime);
-    //     // console.log(Math.floor(audio.currentTime- min*60));
-    //     // console.log(Math.ceil(audio.currentTime- min*60));
-    //     $(".currentTime").html(nowForm);
-    //     // console.log(min + ":" + sec);
-    //     let durForm = minuteFormat(audio.duration);
-    //     $(".duration").html(durForm);
-    // }, 1000);
-    // currentTime = audio.currentTime();
-    // console.log(audio.currentTime);
-    // $("#play")[0].src == "img/pause.png";
-    // console.log($("#play")[0]);
-
 
     return audio;
 }
@@ -222,12 +124,12 @@ function songUp(songs, i) {
 
 
     songs.forEach(async song => {
-
+        // console.log(song);
         currPlaylistSongs.innerHTML += `
                             <li class="d-flex gap-1" data-name="${song}">
                                 <img src="img/GeetHub_logo.png" style="filter: invert();" alt="">
                                 <div class="info d-flex justify-content-center flex-column" >
-                                    <h6 class="m-0">${song.split("/")[5].split(".mp3")[0].replaceAll("%20", " ")}</h6>
+                                    <h6 class="m-0">${song.split("/")[2].split(".mp3")[0].replaceAll("%20", " ")}</h6>
                                     <p class="m-0">Artist • Abhishek Abhinav</p>
                                 </div>
                             </li>`;
@@ -248,14 +150,14 @@ function songUp(songs, i) {
             // console.log(audio.src);
             audio = new Audio(songToPlay.dataset.name);
             audio.play();
-            nowPlayingImg.src = audio.src.split("/")[3] + "/" + audio.src.split("/")[4] + "/cover.png";
+            nowPlayingImg.src = audio.src.split("/")[4] + "/" + audio.src.split("/")[5] + "/cover.png";
             // console.log(audio.src.split("/")[5].split(".mp3")[0].replaceAll("%20", " "));
             $(".now-playing .info p").html("Now Playing");
 
             togglePlayButton();
 
 
-            nowPlaying.innerHTML = audio.src.split("/")[5].split(".mp3")[0].replaceAll("%20", " ");
+            nowPlaying.innerHTML = audio.src.split("/")[6].split(".mp3")[0].replaceAll("%20", " ");
         })
     })
 
@@ -265,7 +167,7 @@ function songUp(songs, i) {
     // console.log(songs[++i]);
 
     // console.log(audio.src.split("/")[3] + "/" + audio.src.split("/")[4] + "/cover.png");
-    nowPlayingImg.src = audio.src.split("/")[3] + "/" + audio.src.split("/")[4] + "/cover.png";
+    nowPlayingImg.src = audio.src.split("/")[4] + "/" + audio.src.split("/")[5] + "/cover.png";
     // console.log(audio.src.split("/")[5].split(".mp3")[0].replaceAll("%20", " "));
 
     $(".now-playing .info p").html("Now Playing");
@@ -275,7 +177,7 @@ function songUp(songs, i) {
     togglePlayButton();
 
 
-    nowPlaying.innerHTML = audio.src.split("/")[5].split(".mp3")[0].replaceAll("%20", " ");
+    nowPlaying.innerHTML = audio.src.split("/")[6].split(".mp3")[0].replaceAll("%20", " ");
 
 
     changeTimes();
@@ -290,7 +192,7 @@ function songUp(songs, i) {
             i++;
             audio.pause();
             $("#play")[0].src = "img/play.png";
-            // console.log(i, songs.length);
+            console.log(i, songs.length);
             if (i < songs.length) {
                 songUp(songs, i);
                 // i++;
@@ -300,7 +202,7 @@ function songUp(songs, i) {
                 $("#play")[0].src = "img/play.png";
                 $(".now-playing .info p").html("End of GeetList");
             }
-            // console.log(audio.currentTime == audio.duration);
+            console.log(audio.currentTime == audio.duration);
             // console.log(i);
         }
 
@@ -317,68 +219,40 @@ function songUp(songs, i) {
 
 
 
-
-// let songli = document.querySelector(".currPlaylistSongs .songs ol li");
-//         // console.log(songli);
-//         // songli.forEach(songToPlay =>{
-//             songli.addEventListener("click",() =>{
-//                 console.log(song);
-//             })
-// })
-
-
 async function main() {
+    const fetched = await fetch("songlist.json");
+    resp = await fetched.json();
+    // console.log(resp);
+
     let playlists = await getPlaylists();
     // console.log(playlists);
 
-    // let audio = new Audio(playlists[0]);
-    // audio.play();
-
-    // audio.addEventListener("loadeddata", () => {
-    //     let duration = audio.duration;
-    //     console.log(duration);
-    //     console.log(audio.currentTime);
-    // })
 
     for (const playlist of playlists) {
-        // console.log(playlist.split("/Songs/")[1].replaceAll("%20", " "));
-        // console.log($("ol").html());
+        // console.log(playlist);
         document.querySelector("ol").innerHTML += `<li class="playlist d-flex gap-1" data-name="${playlist}">
-        <img src="Songs/${playlist.split("/Songs/")[1].replaceAll("%20", " ")}/cover.png" alt="">
+        <img src="${playlist}/cover.png" alt="">
         <div class="info d-flex justify-content-center flex-column">
-            <h6 class="m-0">${playlist.split("/Songs/")[1].replaceAll("%20", " ")}</h6>
+            <h6 class="m-0">${playlist.split("Songs/")[1].replaceAll("%20", " ")}</h6>
             <p class="m-0">Playlist • Abhishek Abhinav</p>
         </div>
         </li> `;
         // console.log(document.querySelector("ol").innerHTML);
         document.querySelector(".cards").innerHTML += `<div class="playlist card col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xs-12  text-light" data-name="${playlist}">
         <div class="cover d-flex justify-content-center align-items-center">
-            <img class="m-3" src="/Songs/${playlist.split("/Songs/")[1].replaceAll("%20", " ")}/cover.png" width="100px">
+            <img class="m-3" src="${playlist}/cover.png" width="100px">
         </div>
         <div class="details">
-            <h6>${playlist.split("/Songs/")[1].replaceAll("%20", " ")}</h6>
+            <h6>${playlist.split("Songs/")[1].replaceAll("%20", " ")}</h6>
             <p>Playlist • Abhishek Abhinav.</p>
         </div>`
+        // console.log(playlist.split("Songs/")[1]);
     }
 
     let pl = document.querySelectorAll(".playlist");
-
-    // let link;
-    // let songs;
-    // let audio;
     pl.forEach(e => {
-        // console.log(this);
-        // console.log(HTMLMediaElement.paused);;
         e.addEventListener("click", async () => {
-            // if (!audio.paused) {
-
-            // audio.pause();
-            // }
             audio = await playSong(e);
-            // console.log(audio);
-
-            // console.log(section)
-            // console.log(this.e);
         });
     })
 
@@ -386,8 +260,6 @@ async function main() {
         // console.log($("#play")[0].src);
         if ($("#play")[0].src.includes("img/play.png")) {
             $("#play")[0].src = $("#play")[0].src.replace("play.png", "pause.png")
-            // console.log($("#play")[0].src.replace("play.png","pause.png"));
-            // console.log($("#play")[0].src);
             if (audio.src == "") {
                 songs = await getSongs(playlists[0]);
                 // audio = new Audio(songs[0]);
@@ -401,17 +273,7 @@ async function main() {
                 $(".now-playing .info p").html("Now Playing");
 
             }
-            // console.log(playlists[0]);
-            // songs = await getSongs(playlists[0]);
-            // audio = new Audio(songs)
-            // audio.play();
-            // changeTimes();
             if (audio) {
-                // if (!audio.paused) {
-                //     // console.log(audio.paused);
-                //     audio.pause();
-                // }
-                // console.log(audio);
                 audio.play();
             }
             else {
@@ -434,40 +296,45 @@ async function main() {
 
     $("#next").click(() => {
         if (songs != undefined) {
+            let audInd = audio.src.split("GeetHub/")[1];
+            // console.log(songs);
             let songsLi = songs.filter((value) => {
                 return !Number.isNaN(value);
             })
             let len = songsLi.length;
-            if (songs.indexOf(audio.src) < len - 1 && songs.indexOf(audio.src) >= 0) {
+            // console.log(songs.indexOf(audInd), len-1);
+            if (songs.indexOf(audInd) < len - 1 && songs.indexOf(audInd) >= 0) {
                 // console.log(songs.length, songsLi.length);
                 audio.pause();
-                songUp(songs, songs.indexOf(audio.src) + 1);
+                songUp(songs, songs.indexOf(audInd) + 1);
                 if (audio.currentTime == audio.duration) {
-                    audio.pause;
+                    audio.pause();
                     $("#play")[0].src = "img/play.png";
                 }
             }
             // console.log(songs.indexOf(audio.src));
 
-            if (songs.indexOf(audio.src) >= songs.length || songs.indexOf(audio.src) < 0) {
+            if (songs.indexOf(audInd) >= len-1 || songs.indexOf(audInd) < 0) {
                 audio.pause();
                 $(".now-playing .info p").html("End of GeetList");
+                $("#play")[0].src = "img/play.png";
                 if (audio.currentTime == audio.duration) {
-                    audio.pause;
                     $("#play")[0].src = "img/play.png";
+                    audio.pause();
                 }
             }
-            if (songs.indexOf(audio.src) >= songs.length - 1) {
+            if (songs.indexOf(audInd) >= songs.length - 1) {
                 $(".now-playing .info p").html("End of GeetList");
             }
         }
     });
     $("#prev").click(() => {
+        let audInd = audio.src.split("5500/")[1];
         if (songs != undefined) {
-            if (songs.indexOf(audio.src) > 0) {
+            if (songs.indexOf(audInd) > 0) {
                 // console.log(songs.indexOf(audio.src)-1);
                 audio.pause();
-                songUp(songs, songs.indexOf(audio.src) - 1);
+                songUp(songs, songs.indexOf(audInd) - 1);
             }
         }
     });
