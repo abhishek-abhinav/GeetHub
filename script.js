@@ -266,7 +266,7 @@ async function main() {
                 songUp(songs, 0);
                 // console.log(audio);
                 // console.log(audio.src.split("/")[5].split(".mp3")[0]);
-                nowPlaying.innerHTML = audio.src.split("/")[5].split(".mp3")[0].replaceAll("%20", " ");
+                nowPlaying.innerHTML = audio.src.split("/")[6].split(".mp3")[0].replaceAll("%20", " ");
                 $(".now-playing").css("visibility", "unset");
                 audio.play();
                 changeTimes();
@@ -329,7 +329,7 @@ async function main() {
         }
     });
     $("#prev").click(() => {
-        let audInd = audio.src.split("5500/")[1];
+        let audInd = audio.src.split("GeetHub/")[1];
         if (songs != undefined) {
             if (songs.indexOf(audInd) > 0) {
                 // console.log(songs.indexOf(audio.src)-1);
