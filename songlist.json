@@ -1,0 +1,66 @@
+{
+    "Songs": [
+        "Filmy Hindi Geet",
+        "Hanuman Gatha By Kumar Vishu",
+        "Odia Movie Songs",
+        "Ringtones",
+        "Shree Ram Bhajan"
+    ],
+
+    "Songs/Filmy%20Hindi%20Geet": [
+        "Aur Tanha.mp3",
+        "Banjaara.mp3",
+        "Chaar Kadam.mp3",
+        "Chahun Main Ya Naa.mp3",
+        "Chal Ghar Chalen.mp3",
+        "Dil Ibaadat.mp3",
+        "Humdard.mp3",
+        "Khuda Aur Mohabbat.mp3",
+        "Main Agar Kahoon.mp3",
+        "Malang Sad Version.mp3",
+        "Mere HumSafar.mp3",
+        "Meri Aashiqui.mp3",
+        "Salamat.mp3",
+        "Shayad.mp3",
+        "Sun Raha Hai Na Tu.mp3",
+        "Suno Chanda.mp3",
+        "Tere Hawaale.mp3",
+        "Tu Hi Haqeeqat.mp3",
+        "Tujh Mein Rab Dikhta Hai.mp3",
+        "Tum Se Hi.mp3"
+    ],
+    "Songs/Hanuman%20Gatha%20By%20Kumar%20Vishu": [
+        "Hanuman Ji Ka Janam (Vol-1).mp3",
+        "Mata Janki Ke Darshan (Vol-2).mp3"
+    ],
+    "Songs/Odia%20Movie%20Songs": [
+        "Aa Lagei De Daga.mp3",
+        "Are Re Re.mp3",
+        "Feel Karuchhi.mp3",
+        "Gala Pare Dhire Dhire.mp3",
+        "Hole Hole Re.mp3",
+        "Sie Mo Prathama Prema.mp3",
+        "Sun Saheba Sun.mp3",
+        "Tori Pain To Pain.mp3",
+        "Tu Dhire Dhire Chal Re Samaya.mp3"
+    ],
+    "Songs/Ringtones": [
+        "Ashutosh Sashank Shekhar.mp3",
+        "Bajrangbali Aur Main.mp3",
+        "Har Har Sambhu.mp3",
+        "Mata Kahan Tujhse Chhupi.mp3",
+        "Namami Samisaan Nirvan Roopam.mp3",
+        "Shree Hari Stotram.mp3"
+    ],
+    "Songs/Shree%20Ram%20Bhajan": [
+        "Agar Nath Dekhoge Avgun Humare.mp3",
+        "Bade Bhagya Se Ye Manuj Tan Mila Hai.mp3",
+        "Data Ek Ram.mp3",
+        "Raghunandan Raghav Ram Hare.mp3",
+        "Raghunandan.mp3",
+        "Sab Mere Ram Jante Hain.mp3",
+        "Shri Ram Jaanki Baithe Hain .mp3",
+        "Teri Mand Mand Muskaniya Pe.mp3",
+        "Yeh Garv Bhara Mastak Mera.mp3"
+    ]
+}
